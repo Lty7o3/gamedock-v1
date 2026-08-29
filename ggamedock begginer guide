@@ -1,0 +1,133 @@
+# 🎮 GameDock — Beginner's Guide
+
+Welcome to **GameDock** — your sleek little launcher that puts all your games in one place, one click away. No more hunting through Steam, the Xbox app, and random folders!
+
+This guide covers everything: installing the app, adding games from **Steam**, **Xbox / Game Pass**, and **downloaded/installed games** — plus keeping your desktop clean and pinning GameDock to your taskbar.
+
+---
+
+## 📥 Part 1 — Installing GameDock
+
+You only do this once, and it takes about a minute.
+
+1. Get the file **`gamedock-for-friends.ps1`** from your friend
+2. Press the **Windows key**, type `powershell`, and open **Windows PowerShell**
+3. Open the file in Notepad (right-click → *Open with* → *Notepad*), press `Ctrl+A` to select everything, then `Ctrl+C` to copy
+4. Click inside the blue PowerShell window and **right-click** (that's how you paste in PowerShell), then press **Enter**
+   - If it looks like it's waiting, press **Enter** one more time
+5. Wait for the green **"GAMEDOCK INSTALLED!"** message — the app opens by itself, and a **GameDock.exe** appears on your Desktop
+
+> 💡 **If Windows shows a blue "Windows protected your PC" popup** the first time you open the app: click **More info → Run anyway**. This happens because the app was just built on your PC and isn't signed by a big company — it only asks once.
+
+---
+
+## ➕ Part 2 — Adding your games
+
+GameDock can launch anything: game `.exe` files, shortcuts (`.lnk`), and internet shortcuts (`.url`). The trick is knowing where each type of game lives. Pick your situation below! 👇
+
+---
+
+### 🟦 Steam games
+
+Steam games hide their real files deep in Steam's folders — but Steam will happily make you a shortcut:
+
+1. Open **Steam** → go to your **Library**
+2. **Right-click** the game → **Manage** → **Add desktop shortcut**
+3. A shortcut appears on your Desktop
+4. Open **GameDock** → click **+ Add a game**
+5. Browse to your **Desktop**, select the game's shortcut, give it a name → **OK**
+6. Click the bubble — Steam launches the game ✅
+
+> 💡 The bubble may show a colored letter instead of the game's artwork — that's normal for Steam's `.url` shortcuts. Launching works perfectly.
+
+---
+
+### 🟩 Xbox / Game Pass games
+
+Xbox app games (like Forza Horizon) are Microsoft Store apps — they have **no normal .exe** you can browse to. Here's the magic trick:
+
+1. Press **Win + R** (a small "Run" box opens)
+2. Type exactly: `shell:AppsFolder` and press **Enter**
+3. A folder opens with **every app on your PC** — start typing the game's name to find it
+4. **Right-click** the game → **Create shortcut**
+5. Windows says it can only place it on the Desktop → click **Yes**
+6. Open **GameDock** → **+ Add a game** → browse to your **Desktop** → select the new shortcut → name it → **OK**
+7. Click the bubble — the game launches ✅
+
+> 💡 Same note as Steam: you'll likely see a colored letter chip instead of game art. Purely cosmetic!
+
+---
+
+### 🟨 Downloaded / installed games (with their own .exe)
+
+The easiest kind! This covers games you installed with their own installer, portable games, emulators, launchers like Epic/GOG, etc.
+
+**If the game already has a Desktop shortcut:**
+1. Open **GameDock** → **+ Add a game**
+2. Browse to your **Desktop**, select the shortcut → name it → **OK** ✅
+
+**If it doesn't have a shortcut**, find its `.exe` directly:
+1. Open **GameDock** → **+ Add a game**
+2. Browse to where the game is installed — common spots:
+   - `C:\Program Files` or `C:\Program Files (x86)`
+   - `C:\Games`
+   - Your Downloads folder (for portable games)
+3. Select the game's main **.exe** file → name it → **OK** ✅
+
+> 💡 Bonus: games added by their real `.exe` show their **actual icon** in the bubble — the prettiest option! 😍
+
+---
+
+## 🧹 Part 3 — Keeping your Desktop clean (optional but nice)
+
+All those shortcuts piling up on your Desktop? Hide them away — GameDock doesn't care where they live, only that they don't get deleted.
+
+1. Press **Win + R**, type `%LOCALAPPDATA%\GameDock`, press **Enter** — this opens GameDock's own hidden folder
+2. **Cut** (Ctrl+X) the game shortcuts from your Desktop and **Paste** (Ctrl+V) them into this folder
+3. ⚠️ **Important:** GameDock still points at the old Desktop location, so fix each moved game:
+   - Click the **✕** on its bubble to remove it
+   - Click **+ Add a game**, and in the file picker type `%LOCALAPPDATA%\GameDock` in the top bar, press Enter
+   - Select the shortcut from there → done ✅
+
+> 💡 **Pro tip:** skip the mess entirely — whenever you create a new game shortcut, move it into that folder *first*, and then add it to GameDock from there.
+
+**The golden rule:** 🚫 never delete a shortcut that a GameDock bubble uses — the bubble will stop working. Moving is fine (just re-add it), deleting is not.
+
+---
+
+## 📌 Part 4 — Pin GameDock to your taskbar
+
+Make GameDock one click away, forever — and remove it from your Desktop if you like:
+
+1. Press **Win + R**, type `%LOCALAPPDATA%\GameDock`, press **Enter**
+2. Double-click the **GameDock** file that says **Application** (purple ▶ icon) — the app opens
+3. **Right-click GameDock's icon on the taskbar** → **Pin to taskbar**
+4. Close the app, then click the pinned icon to test — it should open ✅
+5. Now you can safely **delete GameDock.exe from your Desktop** — the taskbar pin uses the hidden copy
+
+> ⚠️ The order matters! Always start the app **from the hidden folder** before pinning — the pin remembers where the app was launched from.
+
+---
+
+## ❓ Quick troubleshooting
+
+| Problem | Fix |
+|---|---|
+| Bubble does nothing / error when clicked | The game's file or shortcut was moved or deleted. Remove the bubble (✕) and re-add the game from its new location |
+| Blue "Windows protected your PC" screen | Click **More info → Run anyway** — one time only |
+| Bubble shows a letter instead of game art | Normal for Steam/Xbox shortcuts — launching still works fine |
+| Taskbar icon stopped working | You deleted the file it pointed to. Redo Part 4 from the hidden folder |
+| Accidentally added the wrong file | Click the **✕** on the bubble and add again |
+
+---
+
+## 🗂️ Where GameDock keeps things (for the curious)
+
+- **The app:** `C:\Users\YOU\AppData\Local\GameDock\GameDock.exe`
+- **Your game list:** `C:\Users\YOU\AppData\Roaming\GameDock\games.txt`
+
+Your library survives restarts, updates, and reinstalls. Uninstalling = just delete those two folders. That's the whole footprint!
+
+---
+
+*Happy gaming! 🕹️ Add all your favorites and enjoy your one-click game library.*
