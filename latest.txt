@@ -1,0 +1,1 @@
+beta-1.0|install-beta-1.0.ps1
